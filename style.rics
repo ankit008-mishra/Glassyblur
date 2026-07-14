@@ -1,3 +1,5 @@
+/* Glassy Blur, a marketplace theme by ankit008-mishra */
+
 
 
 
@@ -1920,8 +1922,8 @@ $accent-icon: white;          // Accent for icons (e.g., like button, active shu
 $accent-highlight: mix($accent, white, 70%); // Lighter accent for hover states and highlights
 
 /* --- Lyrics --- */
-$fullscreen-layout: corner;   // corner | center
-$lyrics-font-size: 40px;
+$fullscreen-layout: flex-direction: column !important;   // corner | center
+$lyrics-font-size: 50px;
 $lyrics-font-weight: 600;
 
 $lyrics-blur-lines: (
@@ -4248,4 +4250,5 @@ ytmusic-multi-row-list-item-renderer.ytmusic-shelf-renderer {
 .subtitle.ytmusic-multi-row-list-item-renderer {
   color: var(--text-secondary);
 }
+
 
