@@ -1,157 +1,116 @@
-# Better Lyrics Theme Store
+# Glassy Blur — YouTube Music Theme
 
-[![Install Better Lyrics Harmonizer](https://img.shields.io/badge/Install-Better%20Lyrics%20Harmonizer-blue?logo=github)](https://github.com/apps/better-lyrics-harmonizer/installations/new)
-[![Themes](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbetter-lyrics%2Fthemes%2Fmaster%2Findex.json&query=%24.themes.length&label=themes&color=blue)](https://github.com/better-lyrics/themes)
-[![Last Updated](https://badgen.net/github/last-commit/better-lyrics/themes)](https://github.com/better-lyrics/themes/commits)
-[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/UsHE3d5fWF)
-[![License](https://badgen.net/badge/license/MIT/blue)](https://github.com/better-lyrics/themes/blob/master/LICENSE)
+[![Installs](https://img.shields.io/endpoint?url=https://better-lyrics-themes-api.boidu.dev/api/badge/glassy-blur)](https://github.com/ankit008-mishra/glassy-blur)
+[![Rating](https://img.shields.io/endpoint?url=https://better-lyrics-themes-api.boidu.dev/api/badge/glassy-blur/rating)](https://github.com/ankit008-mishra/glassy-blur)
 
-Community themes for [Better Lyrics](https://github.com/better-lyrics/better-lyrics).
+A refined glass-morphism userstyle for YouTube Music. Inspired by Apple Music's clean aesthetics, this theme replaces heavy UI surfaces with translucent, blurred panels that let album artwork breathe through the interface.
 
-## Browse Themes
+> **Requires [Better Lyrics](https://github.com/better-lyrics/better-lyrics)** — This theme is built for the Better Lyrics extension and leverages its lyrics engine for the full visual experience.
 
-Open the Better Lyrics extension options → **Themes** tab → **Browse Themes** to explore and install themes directly.
+---
 
-## Submit Your Theme
+## ✨ Features
 
-Want to add your theme to the store? Follow these steps:
+- **True Glass Morphism** — Backdrop-blur on nav bar, player bar, menus, modals, and dropdowns.
+- **Unified Typography** — San Francisco Pro font family across the entire app for a native Apple-ecosystem feel.
+- **BetterLyrics Integration** — Custom-tuned lyrics styling with Apple Music–inspired blur states, color transitions, and layout fixes.
+- **Smooth Global Animations** — Keyframe-powered entrance animations for cards, menus, player page, sidebar, and queue items.
+- **Clean Player Layout** — Consistent album-art sizing, rounded corners, and shadow depth in both standard and fullscreen modes.
+- **Smart Thumbnails** — Rounded art for videos, perfect circles for artists, and square crops for playlists/albums.
+- **Queue & Menu Polish** — Frosted-glass context menus, settings dialogs, share panels, and playlist add-to options.
+- **Optimized Footprint** — ~90 KB of pure CSS with no SCSS dependencies or preprocessor bloat.
 
-### Quick Start
+---
 
-Scaffold a new theme instantly with the CLI:
+## 📦 Installation
 
-```bash
-npx create-bl-theme@latest my-theme
-```
+### Method 1: Better Lyrics Theme Store (Recommended)
 
-This creates a ready-to-use theme with all required files. You can also validate your theme before submitting:
+The easiest way to install:
 
-```bash
-npx create-bl-theme@latest validate ./my-theme
-```
+1. Make sure you have the **[Better Lyrics](https://github.com/better-lyrics/better-lyrics)** browser extension installed.
+2. Open the Better Lyrics extension options → **Themes** tab → **Browse Themes**.
+3. Search for **"Glassy Blur"** and click **Install**.
+4. Refresh YouTube Music. Done!
 
-### 1. Create Your Theme Repository
+### Method 2: Direct Install from URL
 
-Your theme repo must include these files:
+1. Open the Better Lyrics extension options → **Themes** tab.
+2. Click **Install from URL**.
+3. Paste your theme's GitHub repo URL:
+   ```
+   https://github.com/ankit008-mishra/glassy-blur
+   ```
+4. Click Install and refresh YouTube Music.
 
-```
-your-theme-repo/
-├── metadata.json    # Theme info (required)
-├── style.css        # Your CSS (required)
-├── DESCRIPTION.md   # Rich description (optional - takes precedence over metadata.json)
-├── cover.png        # Cover image (optional - first image used if missing)
-├── shader.json      # Shader config (optional)
-└── images/          # Screenshots (required - at least one)
-    ├── 1.png
-    └── 2.png
-```
+### Method 3: Manual Install (Stylus)
 
-### 2. Create `metadata.json`
+If you prefer using Stylus or any user-style injector:
 
-```json
-{
-  "id": "your-unique-theme-id",
-  "title": "Your Theme Name",
-  "description": "A brief description of your theme and what makes it unique.",
-  "creators": ["your-github-username"],
-  "minVersion": "2.0.5.6",
-  "hasShaders": false,
-  "version": "1.0.0",
-  "tags": ["dark", "minimal", "colorful"],
-  "images": ["1.png", "2.png"]
-}
-```
+1. Install the [Stylus](https://add0n.com/stylus.html) extension for your browser.
+2. Create a new style for **`music.youtube.com`**.
+3. Paste the contents of **`style.css`** (from this repo).
+4. Save and refresh YouTube Music.
 
-| Field       | Required | Description                                                                 |
-| ----------- | -------- | --------------------------------------------------------------------------- |
-| id          | Yes      | Unique identifier (lowercase, hyphens allowed)                              |
-| title       | Yes      | Display name                                                                |
-| description | \*       | What your theme does (\*required unless DESCRIPTION.md exists)              |
-| creators    | Yes      | Array of GitHub usernames                                                   |
-| minVersion  | Yes      | Minimum Better Lyrics version required                                      |
-| hasShaders  | Yes      | Whether theme includes shader.json                                          |
-| version     | Yes      | Your theme's version (semver)                                               |
-| tags        | No       | Searchable tags                                                             |
-| images      | Yes      | Filenames in the images/ folder (first image used as cover if no cover.png) |
+> ⚠️ **Note:** Manual installation via Stylus will give you the visual theme, but the Better Lyrics–specific features (lyrics blur, background art, synced word highlighting) require the Better Lyrics extension to be active.
 
-### 3. (Optional) Create `DESCRIPTION.md`
+---
 
-For richer descriptions with markdown formatting, create a `DESCRIPTION.md` file in your repo root:
+## 🎨 Customization
 
-```markdown
-A beautiful dark theme with smooth animations.
+All tweakable values live at the top of the file inside the `:root` block:
 
-## Features
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--lucid-glass-blur` | `25px` | Master blur strength for glass panels |
+| `--lucid-nav-glass-bg` | `rgba(30,30,30,0)` | Top nav background |
+| `--lucid-player-glass-bg` | `rgba(20,20,20,0.2)` | Bottom player bar background |
+| `--lucid-menu-dark-bg` | `rgba(30,30,30,0.35)` | Settings & profile menu bg |
+| `--lucid-menu-light-bg` | `rgba(30,30,30,0.1)` | 3-dot song menu bg |
+| `--lucid-video-tab-gap` | `1.3vw` | Lyrics ↔ video gap in Video tab |
+| `--lucid-audio-center` | `25vw` | Center shift for square art when no lyrics |
+| `--blyrics-font-size` | `3rem` / `5rem` (≥1279 px) | Lyrics font size |
+| `--yt-album-size` | `500px` | Max album art size |
 
-- Custom gradient backgrounds
-- Smooth lyric transitions
-- **Rich sync** word-by-word highlighting
+Edit these values directly in the CSS to personalize the theme without touching any other rule.
 
-## Installation Notes
+---
 
-This theme works best with the album art background enabled.
-```
+## 🖼️ Preview
 
-**Benefits:**
+*(Screenshots will be added here.)*
 
-- Full markdown support with headers, lists, images, and more
-- GitHub renders the file nicely in your repo
-- Easier to maintain longer descriptions
+---
 
-**Note:** If both `DESCRIPTION.md` and the `description` field in `metadata.json` exist, `DESCRIPTION.md` takes precedence.
+## 🧩 Compatibility
 
-### 4. Submit It
+- **Browsers:** Chrome, Edge, Brave, Firefox (with standard CSS `backdrop-filter` support).
+- **Extensions:** Better Lyrics (required for lyrics features), Stylus (optional for manual install).
+- **BetterLyrics Version:** Minimum `2.0.5.6` recommended.
 
-Open a [Submit theme issue](https://github.com/better-lyrics/themes/issues/new?template=submit-theme.yml), enter your repo, and submit. A pull request gets opened and checked for you. Once a maintainer merges it, your theme is live.
+---
 
-### 5. Enable Auto-Updates (Recommended)
+## 🏗️ Built With
 
-Install the GitHub App to automatically publish updates when you push:
+- **Base structure** inspired by *chengggit*'s dynamic theme architecture.
+- **Original concept & design** by **ankit008-mishra**.
+- **Optimized & maintained** by the community.
 
-[![Install Better Lyrics Harmonizer](https://img.shields.io/badge/Install-Better%20Lyrics%20Harmonizer-blue?logo=github)](https://github.com/apps/better-lyrics-harmonizer/installations/new)
+---
 
-Once installed, just bump the `version` in your `metadata.json` and push - your theme updates automatically!
+## 📄 License
 
-## Versioning & Compatibility
+This project is released under the MIT License. Feel free to fork, modify, and redistribute with attribution.
 
-You set two version fields in `metadata.json`. `version` is your theme's release number. `minVersion` is the lowest Better Lyrics version your theme needs to work.
+---
 
-The store keeps your older builds, not just the newest one. When you raise `minVersion` in a release, the previous build stays available for people who are still on an older extension and can't run the new one yet. Anyone new enough gets your latest build.
+## 🤝 Contributing
 
-That makes raising `minVersion` safe. You can use newer extension features in your latest build without breaking people who haven't updated, because they keep the last build that worked for them instead of being handed one that won't run.
+Pull requests are welcome. If you spot a broken selector after a YouTube Music update, open an issue with:
+- Your browser & extension version
+- A screenshot of the affected area
+- The expected vs. actual behavior
 
-You don't list builds or write any compatibility range. Bump `version`, set `minVersion`, push. The store figures out which build each user gets.
+---
 
-For example, if you ship `1.7.6` needing `2.2.0.0`, then later ship `2.0.0` needing `2.5.0.0`:
-
-- Someone on extension `2.3` can't run `2.0.0`, so they keep getting `1.7.6`.
-- Someone on extension `2.6` gets `2.0.0`.
-
-## Guidelines
-
-- Test your theme with the latest Better Lyrics version
-- Include at least one screenshot in the images/ folder
-- Use 16:9 aspect ratio for images (1280x720 recommended)
-- Keep your description concise but informative
-- Don't include malicious or obfuscated CSS
-
-## Install Count Badge
-
-Add an install count/rating badge to your theme's README:
-
-```markdown
-[![Installs](https://img.shields.io/endpoint?url=https://better-lyrics-themes-api.boidu.dev/api/badge/your-theme-id)](https://github.com/your-username/your-theme-repo)
-
-[![Rating](https://img.shields.io/endpoint?url=https://better-lyrics-themes-api.boidu.dev/api/badge/your-theme-id/rating)](https://github.com/your-username/your-theme-repo)
-```
-
-Replace `your-theme-id` with the `id` from your `metadata.json` & `your-username/your-theme-repo` with your GitHub repo path.
-You can customize the badge with [shields.io query parameters](https://shields.io/badges/endpoint-badge) like `&style=for-the-badge` or `&labelColor=black`.
-
-## Direct Install
-
-Users can also install themes directly from any GitHub repo URL via **Install from URL** in the extension, no submission required.
-
-## License
-
-Themes are maintained by their respective creators. Check individual theme repositories for licensing information.
+*Enjoy your music, beautifully.*
