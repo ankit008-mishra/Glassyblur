@@ -78,7 +78,7 @@ Edit these values directly in the CSS to personalize the theme without touching 
 
 ## 🖼️ Preview
 
-*(Screenshots will be added here.)*
+[!Preview](https://raw.githubusercontent.com/ankit008-mishra/Glassyblur/refs/heads/main/images/1.png)
 
 ---
 
